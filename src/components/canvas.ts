@@ -8,20 +8,20 @@ import Gallery from "@/components/gallery"
 import type { Dimensions, Size } from "@/types/types"
 
 export default class Canvas {
-  element: HTMLCanvasElement
-  scene: THREE.Scene
-  camera: THREE.PerspectiveCamera
-  renderer: THREE.WebGLRenderer
-  sizes: Size
-  dimensions: Dimensions
-  time: number
-  clock: THREE.Clock
-  raycaster: THREE.Raycaster
-  mouse: THREE.Vector2
-  orbitControls: OrbitControls
-  debug: GUI
-  gallery: Gallery
-  scrollY: number
+  element!: HTMLCanvasElement
+  scene!: THREE.Scene
+  camera!: THREE.PerspectiveCamera
+  renderer!: THREE.WebGLRenderer
+  sizes!: Size
+  dimensions!: Dimensions
+  time!: number
+  clock!: THREE.Clock
+  raycaster!: THREE.Raycaster
+  mouse!: THREE.Vector2
+  orbitControls?: OrbitControls
+  debug!: GUI
+  gallery!: Gallery
+  scrollY!: number
   lastDirection: number = 1
 
   constructor() {
@@ -114,7 +114,7 @@ export default class Canvas {
     const intersects = this.raycaster.intersectObjects(this.scene.children)
     const target = intersects[0]
     if (target && "material" in target.object) {
-      const targetMesh = intersects[0].object as THREE.Mesh
+      // Intended for future hover/interaction logic with meshes
     }
   }
 
